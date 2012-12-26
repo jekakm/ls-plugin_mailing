@@ -52,7 +52,7 @@ before_script:
   - sudo /etc/init.d/apache2 restart
 
   - cat /etc/php5/cli/php.ini
-  - echo test | /usr/bin/sendmailex.sh
+  - echo test | /usr/bin/sendmailex
   - php ./plugins/mailing/mail.php
   - ls -la /var/mail/sendmail/new
 
