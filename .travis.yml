@@ -52,7 +52,8 @@ before_script:
   - sudo cp ./plugins/mailing/tests/fixtures/php.ini /etc/php5/cli/php.ini
   - sudo /etc/init.d/apache2 restart
 
-  - cat /etc/php5/cli/php.ini
+  - php -i|grep sendmail_path
+  - php -i|grep php.ini
   - echo test | /usr/local/bin/sendmailex
   - php ./plugins/mailing/mail.php
   - ls -la /var/mail/sendmail/new
