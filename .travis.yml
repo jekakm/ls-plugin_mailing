@@ -39,6 +39,9 @@ before_script:
 
   # Set fail sendmail engine
 
+  - php_conf_path=`php --ini|grep "Configuration File (php.ini) Path"|cut -d " " -f5`
+  - echo $php_conf_path
+  - sudo cp ./plugins/mailing/tests/fixtures/php.ini $php_conf_path/php.ini
   - sudo cp ./plugins/mailing/tests/fixtures/script/sendmailex.sh /usr/local/bin/sendmailex
   - sudo chmod a+x /usr/local/bin/sendmailex
 
@@ -47,11 +50,7 @@ before_script:
   - sudo mkdir -p /var/mail/sendmail/tmp
   - sudo chmod -R 0777 /var/mail/sendmail
 
-  - sudo cp ./plugins/mailing/tests/fixtures/php.ini /etc/php5/cli/php.ini
   - sudo /etc/init.d/apache2 restart
-
-  - php_conf_path=`php --ini|grep "Configuration File (php.ini) Path"|cut -d " " -f5`
-  - echo $php_conf_path
 
   - rm -rf ./install
   - wget -S http://livestreet.test/ -O /dev/null
