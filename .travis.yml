@@ -39,7 +39,7 @@ before_script:
 
   # Set fail sendmail engine
 
-  - sudo cp $cPath'/plugins/mailing/tests/fixtures/script/sendmailex.sh' /usr/bin/sendmailex.sh
+  - sudo cp ./plugins/mailing/tests/fixtures/script/sendmailex.sh /usr/bin/sendmailex.sh
   - sudo chmod a+x /usr/bin/sendmailex.sh
 
   - sudo mkdir -p /var/mail/sendmail/cur
@@ -50,6 +50,10 @@ before_script:
   - echo 'echo "sendmail_path = /usr/bin/sendmailex.sh" >> /etc/php5/apache2/php.ini' | sudo sh
   - echo 'echo "sendmail_path = /usr/bin/sendmailex.sh" >> /etc/php5/cli/php.ini' | sudo sh
   - sudo /etc/init.d/apache2 restart
+
+  - cat /etc/php5/cli/php.ini
+  - echo test | /usr/bin/sendmailex.sh
+  - ls -la /var/mail/sendmail/new
 
   - rm -rf ./install
   - wget -S http://livestreet.test/ -O /dev/null
