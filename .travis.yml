@@ -54,6 +54,7 @@ before_script:
 
   - php -i|grep sendmail_path
   - php -i|grep php.ini
+  - ls -la /home/travis/.phpenv/versions/5.3.19/etc/
   - echo test | /usr/local/bin/sendmailex
   - php ./plugins/mailing/mail.php
   - ls -la /var/mail/sendmail/new
