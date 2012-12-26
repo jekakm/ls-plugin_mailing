@@ -53,6 +53,7 @@ before_script:
 
   - cat /etc/php5/cli/php.ini
   - echo test | /usr/bin/sendmailex.sh
+  - php /plugins/mailing/mail.php
   - ls -la /var/mail/sendmail/new
 
   - rm -rf ./install
