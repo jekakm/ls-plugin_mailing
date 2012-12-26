@@ -53,14 +53,14 @@ before_script:
 
   - cat /etc/php5/cli/php.ini
   - echo test | /usr/bin/sendmailex.sh
-  - php /plugins/mailing/mail.php
+  - php ./plugins/mailing/mail.php
   - ls -la /var/mail/sendmail/new
 
   - rm -rf ./install
   - wget -S http://livestreet.test/ -O /dev/null
 
   # start virtual display
-  - sh -e /etc/init.d/xvfb start
+  - sh -e /etc/init.d/xvf bstart
   - sleep 5
 
   # download and launch Selenium
